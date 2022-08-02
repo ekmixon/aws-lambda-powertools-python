@@ -194,9 +194,7 @@ class AppSyncResolverEvent(DictWrapper):
     def prev_result(self) -> Optional[Dict[str, Any]]:
         """It represents the result of whatever previous operation was executed in a pipeline resolver."""
         prev = self.get("prev")
-        if not prev:
-            return None
-        return prev.get("result")
+        return prev.get("result") if prev else None
 
     @property
     def info(self) -> AppSyncResolverEventInfo:

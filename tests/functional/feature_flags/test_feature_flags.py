@@ -31,8 +31,7 @@ def init_feature_flags(
         envelope=envelope,
         jmespath_options=jmespath_options,
     )
-    feature_flags: FeatureFlags = FeatureFlags(store=app_conf_fetcher)
-    return feature_flags
+    return FeatureFlags(store=app_conf_fetcher)
 
 
 def init_fetcher_side_effect(mocker, config: Config, side_effect) -> AppConfigStore:
